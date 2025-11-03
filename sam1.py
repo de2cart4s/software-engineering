@@ -1,11 +1,11 @@
-class Car:
-    def __init__(self, brand, model):
-        self.brand = brand
-        self.model = model
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
 
     def show_info(self):
-        print(f"Автомобиль: {self.brand} {self.model}")
+        print(f"Книга: «{self.title}», автор: {self.author}")
 
 
-car1 = Car("Toyota", "Camry")
-car1.show_info()
+book1 = Book("Преступление и наказание", "Ф. М. Достоевский")
+book1.show_info()

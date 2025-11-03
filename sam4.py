@@ -1,16 +1,19 @@
-class CarSecure:
-    def __init__(self, brand, model, pin_code):
-        self.brand = brand
-        self.model = model
-        self.__pin_code = pin_code  # закрытый атрибут
+class LibraryCard:
+    def __init__(self, owner, card_number):
+        self.owner = owner
+        self.__card_number = card_number  # скрытый атрибут
 
-    def unlock(self, code):
-        if code == self.__pin_code:
-            print(f"{self.brand} {self.model} — доступ разрешен.")
+    def show_owner(self):
+        print(f"Читатель: {self.owner}")
+
+    def check_card(self, number):
+        if number == self.__card_number:
+            print("Доступ к библиотечной карте разрешён.")
         else:
-            print("Неверный PIN-код! Доступ запрещен.")
+            print("Ошибка доступа: неверный номер карты.")
 
-# Проверка
-secure_car = CarSecure("BMW", "X5", "1234")
-secure_car.unlock("0000")
-secure_car.unlock("1234")
+
+card = LibraryCard("Иван Петров", "B12345")
+card.show_owner()
+card.check_card("00000")
+card.check_card("B12345")

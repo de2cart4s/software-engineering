@@ -1,15 +1,16 @@
-class Animal:
-    def speak(self):
-        print("Животное издает звук")
+class Reader:
+    def read(self):
+        print("Читатель читает книгу в библиотеке.")
 
-class Dog(Animal):
-    def speak(self):
-        print("Собака лает")
+class Student(Reader):
+    def read(self):
+        print("Студент читает учебник по программированию.")
 
-class Cat(Animal):
-    def speak(self):
-        print("Кошка мяукает")
+class Scientist(Reader):
+    def read(self):
+        print("Учёный изучает научные статьи и монографии.")
 
-animals = [Dog(), Cat(), Animal()]
-for a in animals:
-    a.speak()
+
+readers = [Reader(), Student(), Scientist()]
+for r in readers:
+    r.read()

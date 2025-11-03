@@ -1,18 +1,20 @@
-class Car:
-    def __init__(self, brand, model, year, color):
-        self.brand = brand
-        self.model = model
+class Book:
+    def __init__(self, title, author, year, pages):
+        self.title = title
+        self.author = author
         self.year = year
-        self.color = color
+        self.pages = pages
 
     def show_info(self):
-        print(f"{self.brand} {self.model}, {self.year} года, цвет: {self.color}")
+        print(f"«{self.title}» ({self.year}), автор: {self.author}, {self.pages} страниц")
 
-    def repaint(self, new_color):
-        self.color = new_color
-        print(f"Машина перекрашена в {self.color}")
+    def is_long(self):
+        if self.pages > 500:
+            print("Это большая книга.")
+        else:
+            print("Это небольшая книга.")
 
-car2 = Car("Honda", "Civic", 2020, "синий")
-car2.show_info()
-car2.repaint("красный")
-car2.show_info()
+
+book2 = Book("Война и мир", "Л. Н. Толстой", 1869, 1225)
+book2.show_info()
+book2.is_long()

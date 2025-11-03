@@ -1,14 +1,14 @@
-from sam2 import Car
+from sam2 import Book
+
+class EBook(Book):
+    def __init__(self, title, author, year, pages, file_size):
+        super().__init__(title, author, year, pages)
+        self.file_size = file_size  # дополнительный атрибут
+
+    def download(self):
+        print(f"Электронная книга «{self.title}» загружена ({self.file_size} МБ).")
 
 
-class ElectricCar(Car):
-    def __init__(self, brand, model, year, color, battery_capacity):
-        super().__init__(brand, model, year, color)
-        self.battery_capacity = battery_capacity
-
-    def charge(self):
-        print(f"Батарея заряжена на {self.battery_capacity} кВт")
-
-ecar = ElectricCar("Tesla", "Model 3", 2023, "белый", 75)
-ecar.show_info()
-ecar.charge()
+ebook = EBook("Мастер и Маргарита", "М. А. Булгаков", 1967, 480, 2.3)
+ebook.show_info()
+ebook.download()
