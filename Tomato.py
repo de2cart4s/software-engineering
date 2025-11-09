@@ -7,8 +7,13 @@ class Tomato:
     }
     
     def __init__(self, index):
-        self._index = index 
-        self._state = 0
+        """
+        Инициализация объекта Tomato
+        _index - защищенное свойство (protected), содержит индекс томата
+        _state - защищенное свойство (protected), содержит текущую стадию созревания
+        """
+        self._index = index # protected свойство
+        self._state = 0 # protected свойство, начальная стадия
     
     def grow(self):
         if self._state < 3:
