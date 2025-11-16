@@ -6,10 +6,12 @@ def cache_decorator(func):
     cache = {}
     
     def wrapper(*args):
+        # Проверяем, есть ли результат в кэше
         if args in cache:
             print(f"Результат для аргументов {args} взят из кэша")
             return cache[args]
         
+        # Если нет в кэше, вычисляем и сохраняем
         result = func(*args)
         cache[args] = result
         print(f"Результат для аргументов {args} вычислен и сохранен в кэш")
@@ -17,6 +19,7 @@ def cache_decorator(func):
     
     return wrapper
 
+# Первая функция с декоратором - вычисление факториала
 @cache_decorator
 def factorial(n):
     if n == 0 or n == 1:
@@ -26,12 +29,13 @@ def factorial(n):
         result *= i
     return result
 
+# Вторая функция с декоратором - вычисление суммы квадратов
 @cache_decorator
 def sum_of_squares(n):
     return sum(i**2 for i in range(1, n + 1))
 
 if __name__ == '__main__':
-    print("Тестирование декоратора кэширования")
+    print("=== Тестирование декоратора кэширования ===")
     
     print("\n1. Тест функции factorial:")
     print(f"factorial(5) = {factorial(5)}")
