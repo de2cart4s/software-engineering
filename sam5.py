@@ -8,6 +8,7 @@ class DataValidationError(Exception):
         self.reason = reason
         super().__init__(f"Ошибка валидации поля '{field_name}': значение '{value}' - {reason}")
 
+# Функция для проверки пароля
 def validate_password(password):
     """
     Проверяет сложность пароля.
@@ -23,6 +24,7 @@ def validate_password(password):
     
     return "Пароль прошел валидацию"
 
+# Функция для проверки имени пользователя
 def validate_username(username):
     """
     Проверяет имя пользователя.
@@ -39,7 +41,7 @@ def validate_username(username):
     return f"Имя пользователя '{username}' валидно"
 
 if __name__ == '__main__':
-    print("Тестирование упрощенного исключения DataValidationError")
+    print("=== Тестирование упрощенного исключения DataValidationError ===")
     
     tests = [
         ("validate_password", "12345", "короткий пароль"),
@@ -59,6 +61,6 @@ if __name__ == '__main__':
                 result = validate_password(test_value)
             else:
                 result = validate_username(test_value)
-            print(f"+ {result}")
+            print(f"✓ {result}")
         except DataValidationError as e:
-            print(f"- {e}")
+            print(f"✗ {e}")
